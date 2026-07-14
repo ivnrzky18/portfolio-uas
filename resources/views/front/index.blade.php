@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #07080a;        /* Hitam solid titanium */
-            --bg-surface: #0e1117;     /* Abu-abu baja gelap pekat untuk semua komponen */
-            --primary: #c21818;        /* Tactical Crimson Red solid */
+            --bg-main: #07080a;        
+            --bg-surface: #0e1117;     
+            --primary: #c21818;        
             --primary-hover: #9e1212;
             --primary-glow: rgba(194, 24, 24, 0.25);
-            --text-main: #e2e8f0;      /* Putih soft premium */
+            --text-main: #e2e8f0;      
             --text-muted: #94a3b8;
-            --border: #1e2530;         /* Border tegas antarkomponen */
+            --border: #1e2530;         
             --border-hover: #c21818;
         }
 
@@ -41,7 +41,7 @@
             width: 90%;
         }
 
-        /* HEADER NAV */
+        /* HEADER NAV & MOBILE RESPONSIVE */
         header {
             border-bottom: 1px solid var(--border);
             backdrop-filter: blur(16px);
@@ -56,7 +56,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 16px 0;
             position: relative;
         }
 
@@ -66,9 +66,11 @@
             font-weight: 700;
             letter-spacing: -0.5px;
             color: #ffffff;
+            z-index: 150;
         }
         .brand-name span { color: var(--primary); }
 
+        /* Desktop Nav */
         nav ul {
             display: flex;
             list-style: none;
@@ -88,9 +90,29 @@
             background: rgba(255, 255, 255, 0.03);
         }
 
-        /* DROPDOWN CONTACT SYSTEM */
+        /* Hamburger Menu Trigger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 150;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        /* CONTACT SYSTEM Dropdown */
         .contact-wrapper {
             position: relative;
+            z-index: 150;
         }
         
         .btn-cta {
@@ -123,7 +145,6 @@
             display: none;
             flex-direction: column;
             gap: 4px;
-            z-index: 110;
         }
         .contact-dropdown.show { display: flex; }
         
@@ -150,7 +171,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 40px;
-            padding: 120px 0;
+            padding: 80px 0;
         }
 
         .hero-left { flex: 1.2; }
@@ -165,7 +186,7 @@
         }
         .hero-left h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 52px;
+            font-size: 48px;
             font-weight: 700;
             line-height: 1.15;
             margin-bottom: 24px;
@@ -174,9 +195,9 @@
         }
         .hero-left p {
             color: var(--text-muted);
-            font-size: 16.5px;
-            line-height: 1.65;
-            margin-bottom: 36px;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 32px;
         }
 
         .hero-right {
@@ -185,7 +206,6 @@
             justify-content: flex-end;
         }
 
-        /* Tactical Profile Frame */
         .profile-card {
             background: var(--bg-surface);
             border: 1px solid var(--border);
@@ -202,7 +222,7 @@
         }
         .profile-img-wrapper {
             width: 100%;
-            height: 350px;
+            height: 340px;
             border-radius: 14px;
             overflow: hidden;
             background: #07080a;
@@ -216,12 +236,12 @@
             margin-top: 16px;
             text-align: center;
         }
-        .profile-info h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; color: #ffffff; }
+        .profile-info h3 { font-size: 17px; font-weight: 700; color: #ffffff; }
         .profile-info p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
 
         /* SKILLS SECTION */
-        .skills { padding: 90px 0; border-top: 1px solid var(--border); }
-        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 48px; text-align: center; color: #ffffff; }
+        .skills { padding: 80px 0; border-top: 1px solid var(--border); }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 40px; text-align: center; color: #ffffff; }
 
         .skills-grid {
             display: grid;
@@ -235,7 +255,7 @@
             border-radius: 12px;
             text-align: center;
             font-weight: 700;
-            font-size: 14.5px;
+            font-size: 14px;
             transition: all 0.3s;
             display: flex;
             flex-direction: column;
@@ -249,11 +269,11 @@
         }
 
         /* PROJECTS SECTION */
-        .projects { padding: 90px 0; border-top: 1px solid var(--border); }
+        .projects { padding: 80px 0; border-top: 1px solid var(--border); }
         .project-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 36px;
+            gap: 32px;
         }
         .project-card {
             background: var(--bg-surface);
@@ -268,16 +288,14 @@
             border-top: 2px solid var(--primary); border-left: 2px solid var(--primary); border-top-left-radius: 16px;
             opacity: 0; transition: opacity 0.3s;
         }
-        .project-card:hover::before {
-            opacity: 1;
-        }
+        .project-card:hover::before { opacity: 1; }
         .project-card:hover {
             border-color: var(--border-hover);
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
         .project-img {
-            height: 230px;
+            height: 220px;
             overflow: hidden;
             border-bottom: 1px solid var(--border);
             background: #07080a;
@@ -287,14 +305,12 @@
             height: 100%;
             object-fit: cover;
         }
-        .project-desc {
-            padding: 28px;
-        }
-        .project-desc h3 { font-size: 19px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; color: #ffffff; }
+        .project-desc { padding: 24px; }
+        .project-desc h3 { font-size: 19px; font-weight: 700; margin-bottom: 12px; color: #ffffff; }
         .project-desc p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
 
         /* TIMELINE SECTION */
-        .timeline { padding: 90px 0; border-top: 1px solid var(--border); }
+        .timeline { padding: 80px 0; border-top: 1px solid var(--border); }
         .timeline-stack { display: flex; flex-direction: column; gap: 16px; max-width: 700px; margin: 0 auto; }
         .timeline-item {
             background: var(--bg-surface);
@@ -305,11 +321,11 @@
             justify-content: space-between;
             align-items: center;
         }
-        .timeline-item h3 { color: #ffffff; }
+        .timeline-item h3 { color: #ffffff; font-size: 16px; }
         .time-badge { font-size: 12px; font-weight: 800; color: #ffffff; background: var(--primary); padding: 6px 14px; border-radius: 6px; }
 
         /* FAQ SECTION */
-        .faq { padding: 90px 0; border-top: 1px solid var(--border); }
+        .faq { padding: 80px 0; border-top: 1px solid var(--border); }
         .faq-stack { display: flex; flex-direction: column; gap: 12px; max-width: 700px; margin: 0 auto; }
         .faq-item {
             background: var(--bg-surface);
@@ -322,7 +338,7 @@
         .faq-item:hover { border-color: rgba(255, 255, 255, 0.08); }
         .faq-head { display: flex; justify-content: space-between; font-weight: 700; font-size: 15px; color: #ffffff; }
         .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, margin-top 0.3s ease; color: var(--text-muted); font-size: 14px; line-height: 1.5; }
-        .faq-item.active .faq-body { max-height: 80px; margin-top: 10px; }
+        .faq-item.active .faq-body { max-height: 120px; margin-top: 10px; }
         .faq-item.active { border-color: var(--primary); }
 
         footer {
@@ -333,15 +349,62 @@
             font-size: 13.5px;
             background: #0a0c10;
         }
+
+        /* ==========================================
+             MEDIA QUERIES - FULL MOBILE OPTIMIZATION
+             ========================================== --> */
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .container { width: 88%; }
+            
+            .hamburger { display: flex; }
+            
+            /* Mobile Navigation Drawer Overlay */
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 75%;
+                height: 100vh;
+                background: var(--bg-surface);
+                border-right: 1px solid var(--border);
+                z-index: 140;
+                padding: 100px 24px;
+                transition: left 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+            }
+            nav.mobile-open { left: 0; }
+            nav ul { flex-direction: column; gap: 16px; }
+            nav ul li a { display: block; font-size: 18px; padding: 12px; }
+
+            .hero { flex-direction: column-reverse; text-align: center; padding: 40px 0; gap: 32px; }
+            .hero-left h1 { font-size: 34px; }
+            .hero-right { justify-content: center; width: 100%; }
+            .profile-card { max-width: 100%; }
+
+            .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .project-grid { grid-template-columns: 1fr; gap: 24px; }
+            .timeline-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+            
+            /* Hamburger Animation State */
+            .hamburger.open-state span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.open-state span:nth-child(2) { opacity: 0; }
+            .hamburger.open-state span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
     </style>
 </head>
 <body>
 
-    <!-- NAV BAR -->
     <header>
         <div class="container nav-container">
+            <button class="hamburger" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <div class="brand-name">M. Ivan Rizky<span>.</span></div>
-            <nav>
+            
+            <nav id="navMenu">
                 <ul>
                     <li><a href="#home" class="active">Beranda</a></li>
                     <li><a href="#skills">Keahlian</a></li>
@@ -367,7 +430,6 @@
 
     <div class="container">
         
-        <!-- HERO -->
         <section class="hero" id="home">
             <div class="hero-left">
                 <span class="hero-tag">Sistem Informasi • Universitas Hang Tuah Pekanbaru</span>
@@ -388,7 +450,6 @@
             </div>
         </section>
 
-        <!-- SKILLS WITH REAL LOGOS -->
         <section class="skills" id="skills">
             <h2 class="section-title">Keahlian Teknologi</h2>
             <div class="skills-grid">
@@ -427,13 +488,12 @@
             </div>
         </section>
 
-        <!-- KARYA -->
         <section class="projects" id="karya">
             <h2 class="section-title">Karya Pilihan</h2>
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="{{ asset('img/RETRIS.png') }}" alt="RETRIS">
+                        <img src="{{ asset('img/RETRIS.jpg') }}" alt="RETRIS">
                     </div>
                     <div class="project-desc">
                         <h3>RETRIS — Kelola Retribusi Sampah</h3>
@@ -452,7 +512,6 @@
             </div>
         </section>
 
-        <!-- TIMELINE -->
         <section class="timeline" id="timeline">
             <h2 class="section-title">Rekam Jejak Akademik</h2>
             <div class="timeline-stack">
@@ -461,7 +520,7 @@
                         <h3>S1 Sistem Informasi</h3>
                         <p style="color: var(--text-muted); font-size: 13.5px; margin-top: 2px;">Universitas Hang Tuah Pekanbaru (Semester 4)</p>
                     </div>
-                    <span class="time-badge">2023 - Aktif</span>
+                    <span class="time-badge">2024 - Aktif</span>
                 </div>
                 <div class="timeline-item">
                     <div>
@@ -473,7 +532,6 @@
             </div>
         </section>
 
-        <!-- FAQ -->
         <section class="faq" id="faq">
             <h2 class="section-title">FAQ</h2>
             <div class="faq-stack">
@@ -488,15 +546,31 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
         <footer>
             <p>© 2026 M. Ivan Rizky — Pekanbaru, Riau.</p>
         </footer>
 
     </div>
 
-    <!-- SCRIPT INTERAKSI -->
     <script>
+        // Hamburger & Mobile Nav Controls
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuToggle.classList.toggle('open-state');
+            navMenu.classList.toggle('mobile-open');
+        });
+
+        // Close mobile menu on clicking any link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('open-state');
+                navMenu.classList.remove('mobile-open');
+            });
+        });
+
         // Dropdown Contact Toggle
         const dropdownBtn = document.getElementById('dropdownBtn');
         const contactDropdown = document.getElementById('contactDropdown');
@@ -508,6 +582,8 @@
         
         window.addEventListener('click', () => {
             contactDropdown.classList.remove('show');
+            menuToggle.classList.remove('open-state');
+            navMenu.classList.remove('mobile-open');
         });
 
         // FAQ Accordion
