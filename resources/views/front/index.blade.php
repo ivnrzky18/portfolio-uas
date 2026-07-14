@@ -493,7 +493,7 @@
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="{{ asset('img/RETRIS.jpg') }}" alt="RETRIS">
+                        <img src="{{ asset('img/RETRIS.png') }}" alt="RETRIS">
                     </div>
                     <div class="project-desc">
                         <h3>RETRIS — Kelola Retribusi Sampah</h3>
